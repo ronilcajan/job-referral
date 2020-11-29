@@ -1,6 +1,5 @@
-# Point of Sale on PHP Version 2
+# Simple Web Applicantion for Job Referral Creation
 
-This project is still in progress. Please don't clone it yet. Thanks.
 <!-- 
 CLAIMS is a web application for small lending businesses.
 
