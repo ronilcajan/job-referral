@@ -5,6 +5,7 @@
 
 	$job_des 	= $conn->real_escape_string($_POST['job_des']);
 	$com_name 	= $conn->real_escape_string($_POST['com_name']);
+	$com_address 	= $conn->real_escape_string($_POST['com_address']);
 	$count 		= $conn->real_escape_string($_POST['count']);
 	$gender		= $conn->real_escape_string($_POST['gender']);
 	$work_ex 	= $conn->real_escape_string($_POST['work_ex']);
@@ -22,7 +23,7 @@
 		$result 	= $conn->query($sql);
 
 		if($result->num_rows > 0){
-			$update  = "UPDATE jobs SET company_name='$com_name', job_description='$job_des', `count`=$count, gender='$gender', experience='$work_ex', educ_level='$educ_level', 
+			$update  = "UPDATE jobs SET company_name='$com_name',com_address='$com_address', job_description='$job_des', `count`=$count, gender='$gender', experience='$work_ex', educ_level='$educ_level', 
 						course='$course', qualification='$qualification',`status`='$status' WHERE ref_no='$ref_no'";
 			$update_jobs  = $conn->query($update);
 
@@ -38,8 +39,8 @@
 			$validation['success'] = false;
 		}
 	}else{
-		$insert 	= "INSERT INTO jobs (company_name, job_description, `count`, gender, experience, educ_level, course, qualification) 
-						VALUES ($com_name', '$job_des', $count , '$gender', '$work_ex', '$educ_level', '$course', '$qualification')";	
+		$insert 	= "INSERT INTO jobs (company_name, com_address job_description, `count`, gender, experience, educ_level, course, qualification) 
+						VALUES ('$com_name','$com_address', '$job_des', $count , '$gender', '$work_ex', '$educ_level', '$course', '$qualification')";	
 		$insert_res 	= $conn->query($insert);
 
 		if($insert_res === true){

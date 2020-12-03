@@ -53,6 +53,7 @@
                                     <tr>
                                         <th>Ref.no</th>
                                         <th>Company Name</th>
+                                        <th>Company Address</th>
                                         <th>Job Description</th>
                                         <th>Count</th>
                                         <th>Status</th>
@@ -65,6 +66,7 @@
                                     <tr>
                                         <th>Ref.no</th>
                                         <th>Company Name</th>
+                                        <th>Company Address</th>
                                         <th>Job Description</th>
                                         <th>Count</th>
                                         <th>Status</th>

@@ -15,7 +15,8 @@ $(document).ready(function(){
 			$('.com_name').val()  != '' && 
 			$('.job_des').val()  != '' && 
 			$('.educ_level').val()  != '' && 
-			$('.qualification').val()  != '' )
+			$('.qualification').val()  != '' && 
+			$('.com_address').val()  != '' )
 		{
 			$.ajax({
 				type: "POST",
@@ -52,6 +53,9 @@ $(document).ready(function(){
 			if($('.qualification').val() == '' ){
 				toastr.warning("Qualification is required!");
 			}
+			if($('.com_address').val() == '' ){
+				toastr.warning("Company Address is required!");
+			}
 		}
 		return false;
 	});
@@ -74,6 +78,7 @@ $(document).ready(function(){
 						$('#All').attr("checked", false);
 						$('#Active').attr("checked", false);
 						$('.com_name').val(response.jobs.company_name);
+						$('.com_address').val(response.jobs.com_address);
 						$('.job_des').val(response.jobs.job_description);
 						$('.count').val(response.jobs.count);
 						$('#'+response.jobs.gender).attr("checked", true);

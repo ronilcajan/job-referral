@@ -81,7 +81,11 @@
                                         <p class="card-description"><?php echo empty($row['date']) ? 'Nothing to show' : date('M. d, Y', strtotime($row['date'])); ?></p>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputText">Job Description.</label>
+                                        <label for="inputText">Company Address</label>
+                                        <p class="card-description"><?php echo empty($row['com_address']) ? 'Nothing to show' : $row['com_address']; ?></p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputText">Job Description</label>
                                         <p class="card-description"><?php echo empty($row['job_description']) ? 'Nothing to show' : $row['job_description']; ?></p>
                                     </div>
                                 </div>
@@ -98,12 +102,13 @@
                                         <label for="inputText">Experience</label>
                                         <p class="card-description"><?php echo empty($row['experience']) ? 'Nothing to show' : $row['experience']; ?></p>
                                     </div>
-                                </div>
-                                <div class="col-md-4">
+                                    
                                     <div class="form-group">
                                         <label for="inputText">Educational Level</label>
                                         <p class="card-description"><?php echo empty($row['educ_level']) ? 'Nothing to show' : $row['educ_level']; ?></p>
                                     </div>
+                                </div>
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="inputText">Course/Major</label>
                                         <p class="card-description"><?php echo empty($row['course']) ? 'Nothing to show' : $row['course']; ?></p>
@@ -266,7 +271,7 @@
                                 <div class="card-body pl-5 pr-5" id="printable">
                                     <div class="w-100 text-center">
                                         <h3><?php echo empty($row['job_description']) ? 'Nothing to show' : $row['job_description']; ?></h3>
-                                        <h6 class=""><?php echo empty($row['ref_no']) ? 'Nothing to show' : 'Referral No.'.$row['ref_no']; ?></h6>
+                                        <h4 class=""><?php echo empty($row['ref_no']) ? 'Nothing to show' : 'Referral No.'.$row['ref_no']; ?></h4>
                                     </div>
                                     <?php if(!empty($row['count'])){?>
                                         <div class="form-group mt-5">

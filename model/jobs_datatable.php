@@ -39,19 +39,24 @@ $columns = array(
             return '<a href="job_details.php?ref_no='.$row[0].'" >'.$d.'</a>';
         }
     ),
-
     array( 
-        'db' => 'job_description', 
+        'db' => 'com_address', 
         'dt' => 2
     ),
 
     array( 
-        'db' => 'count',   
+        'db' => 'job_description', 
         'dt' => 3
+    ),
+    
+
+    array( 
+        'db' => 'count',   
+        'dt' => 4
     ),
     array( 
         'db' => 'status',   
-        'dt' => 4,
+        'dt' => 5,
         'formatter' => function( $d, $row ) {
             if($d=='Active'){
                 return '<span class="badge badge-info">'.$d.'</span>';
@@ -63,7 +68,7 @@ $columns = array(
     ),
     array( 
         'db' => 'ref_no',
-        'dt' => 5, 
+        'dt' => 6, 
         'formatter' => function( $d, $row ) {
             return '
             <a type="button" href="job_details.php?ref_no='.$row[0].'" class="btn btn-link text-info"><span class=""><i class="fa fa-eye"> </i></span> View</a> |

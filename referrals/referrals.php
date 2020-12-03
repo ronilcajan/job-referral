@@ -20,8 +20,8 @@
                     position:absolute;
                     filter:grayscale(0.2);
                     opacity:0.1;
-                    top:150px;
-                    left:300px;
+                    top:30px;
+                    left:200px;
                 }
             }
         </style>
@@ -174,7 +174,7 @@
                         <?php 
                             $ref_id = $_GET['ref-id'];
                             
-                            $sql = "SELECT applicants.name as `name`, applicants.image as `image`, jobs.company_name as company, jobs.job_description as job
+                            $sql = "SELECT applicants.name as `name`, applicants.image as `image`, jobs.company_name as company, jobs.job_description as job, jobs.com_address as com_add
                                     FROM referral LEFT JOIN applicants ON referral.applicant_id = applicants.id LEFT JOIN jobs on referral.job_no = jobs.ref_no WHERE referral.id=$ref_id";
                             $select = $conn->query($sql);
                             $row = $select->fetch_assoc();
@@ -185,7 +185,7 @@
                                     <button class="btn btn-sm btn-danger" type="button" onclick="printDiv('printable')">Print</button>
                                 </div><!-- /.card-header -->
                                 <div class="card-body" id="printable" >
-                                    <img class="img" src="../assets/images/peso.png" width=450/>
+                                    <img class="img" src="../assets/images/peso.png" width=650/>
                                     <div class="row w-100">
                                         <div class="col-md-2 text-center">
                                             <img class="" src="../assets/images/LGUGSC.png" width="100" height="100"/>
@@ -219,7 +219,7 @@
                                             <div class="form-group">
                                                 <p class="ptag">THE PERSONAL MANAGER</p>
                                                 <h5 class="ptag"><strong><?php echo strtoupper($row['company']); ?></strong></h5>
-                                                <p class="ptag">General Santos City</p>
+                                                <p class="ptag"><?php echo empty($row['com_add']) ? 'General Santos City' : strtoupper($row['com_add']); ?></p>
                                             </div>
                                         </div>
                                         <div class="col-md-4 text-center">

@@ -68,6 +68,10 @@
                                 <input type="text" class="form-control com_name" name="com_name" placeholder="Enter comapany name..." required>
                             </div>
                             <div class="form-group">
+                                <label for="inputText">Company Address</label>
+                                <input type="text" class="form-control com_address" name="com_address" placeholder="Enter comapany address..." required>
+                            </div>
+                            <div class="form-group">
                                 <label>Job Description</label>
                                 <textarea class="form-control job_des" rows="3" name="job_des" placeholder="Enter job description..." required></textarea>
                             </div>
