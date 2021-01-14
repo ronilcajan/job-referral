@@ -16,3 +16,11 @@
 <script src="../assets/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="../assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="../assets/scripts/script.js"></script>
+<script src="../assets/plugins/jquery-ui/jquery-ui.js"></script>
+<script src="../assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="../assets/plugins/datatables-buttons/js/buttons.flash.js"></script>
+<script src="../assets/plugins/jszip/jszip.min.js"></script>
+<script src="../assets/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="../assets/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="../assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="../assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>

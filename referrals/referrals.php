@@ -6,8 +6,6 @@
 <html lang="en">
     <head>
         <?php include '../templates/header.php'; ?>
-        <link rel="stylesheet" href="../assets/plugins/jquery-ui/jquery-ui.css" type="text/css">
-        <link rel="stylesheet" href="../assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css" type="text/css">
         <title>Applicant Profile · PESO</title>
         <style>
             .ptag{
@@ -322,15 +320,6 @@
     </div>
     <!-- ./wrapper -->
     <?php include '../templates/footer-links.php'; ?>
-    <script src="../assets/plugins/jquery-ui/jquery-ui.js"></script>
-    <script src="../assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="../assets/plugins/datatables-buttons/js/buttons.flash.js"></script>
-    <script src="../assets/plugins/jszip/jszip.min.js"></script>
-    <script src="../assets/plugins/pdfmake/pdfmake.min.js"></script>
-    <script src="../assets/plugins/pdfmake/vfs_fonts.js"></script>
-    <script src="../assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-    <script src="../assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-    
     <script src="../assets/scripts/referrals.js"></script>
     <script>
 		function printDiv(divName){

@@ -31,7 +31,7 @@ $(document).ready(function(){
 					customize : function(doc){ 
 						var rowCount = doc.content[1].table.body.length;
 						for (i = 1; i < rowCount; i++) {
-							  doc.content[1].table.body[i][0].alignment = 'left';
+							  doc.content[1].table.body[i][0].alignment = 'center';
 							  doc.content[1].table.body[i][1].alignment = 'center';
 							  doc.content[1].table.body[i][2].alignment = 'center';
 							  doc.content[1].table.body[i][3].alignment = 'center';

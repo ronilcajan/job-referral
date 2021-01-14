@@ -40,23 +40,31 @@ $columns = array(
         }
     ),
     array( 
-        'db' => 'com_address', 
+        'db' => 'job_description', 
         'dt' => 2
     ),
-
-    array( 
-        'db' => 'job_description', 
-        'dt' => 3
-    ),
-    
-
     array( 
         'db' => 'count',   
+        'dt' => 3
+    ),
+    array( 
+        'db' => 'experience',   
         'dt' => 4
     ),
     array( 
-        'db' => 'status',   
+        'db' => 'course',   
         'dt' => 5,
+        'formatter' => function($d, $row){
+            return $d.' - '.$row[9];
+        }
+    ),
+    array( 
+        'db' => 'qualification',   
+        'dt' =>6
+    ),
+    array( 
+        'db' => 'status',   
+        'dt' => 7,
         'formatter' => function( $d, $row ) {
             if($d=='Active'){
                 return '<span class="badge badge-info">'.$d.'</span>';
@@ -68,14 +76,18 @@ $columns = array(
     ),
     array( 
         'db' => 'ref_no',
-        'dt' => 6, 
+        'dt' => 8, 
         'formatter' => function( $d, $row ) {
             return '
-            <a type="button" href="job_details.php?ref_no='.$row[0].'" class="btn btn-link text-info"><span class=""><i class="fa fa-eye"> </i></span> View</a> |
-            <button type="button" class="btn btn-link edit_jobs text-success" id="'.$d.'"><span class=""><i class="fa fa-edit"> </i></span> Edit</button> |
-            <button type="button" class="btn btn-link remove_jobs text-danger" id="'.$d.'"><span class=""><i class="fa fa-minus-circle"> </i></span> Remove</button>
+            <a type="button" href="job_details.php?ref_no='.$row[0].'" class="btn btn-link text-info"><span class=""><i class="fa fa-eye"> </i></span></a> |
+            <button type="button" class="btn btn-link edit_jobs text-success" id="'.$d.'"><span class=""><i class="fa fa-edit"> </i></span></button> |
+            <button type="button" class="btn btn-link remove_jobs text-danger" id="'.$d.'"><span class=""><i class="fa fa-minus-circle"> </i></span> </button>
         ';
         }
+    ),
+    array( 
+        'db' => 'educ_level',   
+        'dt' => 9
     ),
 
 );

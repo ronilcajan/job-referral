@@ -7,6 +7,14 @@
     <head>
         <?php include '../templates/header.php'; ?>
         <title>Jobs · PESO</title>
+        <style>
+            .jobs_table_wrapper div#jobs_table_length.dataTables_length {
+                width:10px;
+            }
+            .jobs_table_wrapper div#dt-buttons {
+                width:10px;
+            }
+        </style>
     </head>
     <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed" >
         <div class="wrapper">
@@ -53,9 +61,11 @@
                                     <tr>
                                         <th>Ref.no</th>
                                         <th>Company Name</th>
-                                        <th>Company Address</th>
                                         <th>Job Description</th>
                                         <th>Count</th>
+                                        <th>Experience Level</th>
+                                        <th>Course Major</th>
+                                        <th width="20%">Qualification</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -66,9 +76,11 @@
                                     <tr>
                                         <th>Ref.no</th>
                                         <th>Company Name</th>
-                                        <th>Company Address</th>
                                         <th>Job Description</th>
                                         <th>Count</th>
+                                        <th>Experience Level</th>
+                                        <th>Course Major</th>
+                                        <th>Qualification</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
