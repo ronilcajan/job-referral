@@ -1,7 +1,70 @@
 $(document).ready(function(){
 	// ========= Jobs DataTables =========
-	$('#referrals_table').DataTable();
+	var table = $('#referrals_table').DataTable({
+		dom: 'lBfrtip',
+		"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+		"buttons": [
+                {
+					extend: "copy",
+					exportOptions: {
+						columns: ':not(:last-child)',
+					},
+                },
+                {
+					extend: "excel",
+					exportOptions: {
+						columns: ':not(:last-child)',
+					},
+                },
+                {
+					extend: "csv",
+					exportOptions: {
+						columns: ':not(:last-child)',
+					},
+                },
+                {
+					extend: "pdf",
+					title: 'Reports - Referred Applicants',
+					exportOptions: {
+						columns: ':not(:last-child)',
+					},
+					customize : function(doc){ 
+						var rowCount = doc.content[1].table.body.length;
+						for (i = 1; i < rowCount; i++) {
+							  doc.content[1].table.body[i][0].alignment = 'left';
+							  doc.content[1].table.body[i][1].alignment = 'center';
+							  doc.content[1].table.body[i][2].alignment = 'center';
+							  doc.content[1].table.body[i][3].alignment = 'center';
+							  doc.content[1].table.body[i][4].alignment = 'center';
+						}
+                        doc.content[1].table.widths = ['5%','23%','23%','23%','23%' ];
 
+                    },
+                
+                },
+                {
+					extend: "print",
+					title: 'Reports - Referred Applicants',
+					exportOptions: {
+						columns: ':not(:last-child)',
+					},
+                    customize : function(doc){ 
+                        $(doc.document.body).find('h1').css('font-size', '15pt');
+                    },
+                }
+		]
+	});
+	$("#min").datepicker({ onSelect: function () { table.draw(); }, changeMonth: true, changeYear: true });
+    $("#max").datepicker({ onSelect: function () { table.draw(); }, changeMonth: true, changeYear: true });
+	// Event listener to the two range filtering inputs to redraw on input
+    $('#min, #max').change( function() {
+        table.draw();
+	} );
+	$('#close').click(function(){
+		$('#min').val("");
+		$('#max').val("");
+		table.draw();
+	});
 	// ========== Insert Referrals ==============
 	$('.submit-ref').on('click', function(e){
         e.preventDefault();
@@ -95,4 +158,16 @@ $(document).ready(function(){
 		return false;
 	});
 
+	$.fn.dataTable.ext.search.push(
+        function (settings, data, dataIndex) {
+            var min = $('#min').datepicker("getDate");
+            var max = $('#max').datepicker("getDate");
+            var startDate = new Date(data[3]);
+            if (min == null && max == null) { return true; }
+            if (min == null && startDate <= max) { return true;}
+            if(max == null && startDate >= min) {return true;}
+            if (startDate <= max && startDate >= min) { return true; }
+            return false;
+        }
+    );
 });

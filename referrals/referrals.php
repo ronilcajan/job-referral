@@ -6,6 +6,8 @@
 <html lang="en">
     <head>
         <?php include '../templates/header.php'; ?>
+        <link rel="stylesheet" href="../assets/plugins/jquery-ui/jquery-ui.css" type="text/css">
+        <link rel="stylesheet" href="../assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css" type="text/css">
         <title>Applicant Profile · PESO</title>
         <style>
             .ptag{
@@ -111,7 +113,20 @@
                                     <h3 class="card-title">Referred Applicants</h3>
                                 </div><!-- /.card-header -->
                                 <div class="card-body">
-                                    
+                                    <div class="row mb-2">
+                                        <div class="col-sm-4" align="right">
+                                            <label class="mt-2" for="">Filter Date:</label>
+                                        </div>
+                                        <div class="col-sm-2" align="left">
+                                            <input class="form-control" id="min" type="text" placeholder="From">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input class="form-control" id="max" type="text" placeholder="To">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <button class="btn btn-danger w-25" id="close">X</button>
+                                        </div>
+                                    </div>
                                         <div class="table-responsive w-100">
                                             <table class="table table-bordered table-hover" id="referrals_table">
                                                 <thead>
@@ -135,7 +150,7 @@
                                                             echo '<tr><td><a href="?ref-id='.$row['id'].'">'.$row['id'].'</a></td>';
                                                             echo '<td><a href="../jobs/job_details.php?ref_no='.$row['job_id'].'">'.$row['job'].'</a></td>';
                                                             echo '<td><a href="../applicants/applicant_details.php?id='.$row['app'].'">'.$row['name'].'</a></td>';
-                                                            echo '<td>'.date('M. d, Y',strtotime($row['date'])).'</td>';
+                                                            echo '<td>'.date('m/d/Y',strtotime($row['date'])).'</td>';
                                                             echo '<td>';
                                                             if($row['status'] == 'Referred'){
                                                                 echo  '<span class="badge badge-primary">'.$row['status'].'</span>';
@@ -307,6 +322,15 @@
     </div>
     <!-- ./wrapper -->
     <?php include '../templates/footer-links.php'; ?>
+    <script src="../assets/plugins/jquery-ui/jquery-ui.js"></script>
+    <script src="../assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../assets/plugins/datatables-buttons/js/buttons.flash.js"></script>
+    <script src="../assets/plugins/jszip/jszip.min.js"></script>
+    <script src="../assets/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="../assets/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="../assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="../assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    
     <script src="../assets/scripts/referrals.js"></script>
     <script>
 		function printDiv(divName){
