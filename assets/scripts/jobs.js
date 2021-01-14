@@ -6,31 +6,33 @@ $(document).ready(function(){
         "autoWidth": false,
 		"ajax": "../model/jobs_datatable.php",
 
-		dom: 'lBfrtip',
-		"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
-		"buttons": [
-			{
-				extend: "pdf",
-				title: 'Job Openings',
-				orientation: 'landscape',
-				pageSize: 'a4',
-				exportOptions: {
-					columns: [ 0, 1, 2, 3,4, 5,6 ]
-				},
-				customize : function(doc){ 
-					var rowCount = doc.content[1].table.body.length;
-					for (i = 1; i < rowCount; i++) {
-						doc.content[1].table.body[i][0].alignment = 'center';
-						doc.content[1].table.body[i][1].fontSize  = 0;
-						doc.content[1].table.body[i][3].alignment = 'center';
-					}
-					doc.content[1].table.widths = ['5%','12%','16%','5%','16%','16%','30%'];
-				},
-			
-			},
+		dom: 'Bfrtip',
+		buttons: {
+			buttons: [
+				{
+					extend: "pdf",
+					text: 'Print',
+					title: 'Job Openings',
+					orientation: 'landscape',
+					pageSize: 'a4',
+					exportOptions: {
+						columns: [ 0, 1, 2, 3,4, 5,6 ]
+					},
+					customize : function(doc){ 
+						var rowCount = doc.content[1].table.body.length;
+						for (i = 1; i < rowCount; i++) {
+							doc.content[1].table.body[i][0].alignment = 'center';
+							doc.content[1].table.body[i][1].fontSize  = 0;
+							doc.content[1].table.body[i][3].alignment = 'center';
+						}
+						doc.content[1].table.widths = ['5%','12%','16%','5%','16%','16%','30%'];
+					},
+					
+					},
+				'pageLength',
 			]
+		}
     });
-
 	// ========== Insert/Edit Jobs ==============
 	$('.create-jobs').on('click', function(){
 		var formdata = new FormData(document.getElementById("job_form"));

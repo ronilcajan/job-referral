@@ -1,59 +1,29 @@
 $(document).ready(function(){
 	// ========= Jobs DataTables =========
 	var table = $('#referrals_table').DataTable({
-		dom: 'lBfrtip',
-		"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
-		"buttons": [
-                {
-					extend: "copy",
-					exportOptions: {
-						columns: ':not(:last-child)',
-					},
-                },
-                {
-					extend: "excel",
-					exportOptions: {
-						columns: ':not(:last-child)',
-					},
-                },
-                {
-					extend: "csv",
-					exportOptions: {
-						columns: ':not(:last-child)',
-					},
-                },
-                {
-					extend: "pdf",
+		dom: 'Bfrtip',
+		buttons: {
+			buttons: [
+				{
+				extend: "print",
 					title: 'Reports - Referred Applicants',
 					exportOptions: {
 						columns: ':not(:last-child)',
 					},
 					customize : function(doc){ 
-						var rowCount = doc.content[1].table.body.length;
-						for (i = 1; i < rowCount; i++) {
-							  doc.content[1].table.body[i][0].alignment = 'center';
-							  doc.content[1].table.body[i][1].alignment = 'center';
-							  doc.content[1].table.body[i][2].alignment = 'center';
-							  doc.content[1].table.body[i][3].alignment = 'center';
-							  doc.content[1].table.body[i][4].alignment = 'center';
-						}
-                        doc.content[1].table.widths = ['5%','23%','23%','23%','23%' ];
-
-                    },
-                
-                },
-                {
-					extend: "print",
-					title: 'Reports - Referred Applicants',
-					exportOptions: {
-						columns: ':not(:last-child)',
+						$(doc.document.body).find('h1').css('font-size', '15pt');
 					},
-                    customize : function(doc){ 
-                        $(doc.document.body).find('h1').css('font-size', '15pt');
-                    },
-                }
-		]
+				},
+				'pageLength',
+			]
+		}
 	});
+	// $('.dt-buttons').attr('hidden',true);
+	$('.dt-buttons').height(10);
+	$('.jobs_table_length').width(30);
+	$(document).on('click', '#print', function(){
+		$(".buttons-print")[0].click(); //trigger the click event
+	 });
 	$("#min").datepicker({ onSelect: function () { table.draw(); }, changeMonth: true, changeYear: true });
     $("#max").datepicker({ onSelect: function () { table.draw(); }, changeMonth: true, changeYear: true });
 	// Event listener to the two range filtering inputs to redraw on input
