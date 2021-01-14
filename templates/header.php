@@ -14,7 +14,9 @@
 <!-- overlayScrollbars -->
 <link rel="stylesheet" href="../assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
 <!-- Theme style -->
+<link rel="stylesheet" href="../assets/plugins/select2/css/select2.min.css" type="text/css">
 <link rel="stylesheet" href="../assets/dist/css/adminlte.min.css">
 <link rel="stylesheet" href="../assets/plugins/toastr/toastr.min.css">
 <link rel="stylesheet" href="../assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="../assets/plugins/jquery-ui/jquery-ui.css" type="text/css">
+

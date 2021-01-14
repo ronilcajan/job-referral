@@ -141,3 +141,31 @@ $(document).ready(function(){
         }
     );
 });
+
+$(document).ready(function() {
+	$('.app_id').select2({
+		allowClear: true
+	});
+	$(function(){
+		$(".job_id").select2({
+			minimumInputLength: 1,
+			allowClear: true,
+			ajax: {
+				url: '../model/search_job.php',
+				dataType: 'json',
+				delay: 250,
+                data: function (data) {
+                    return {
+                        searchTerm: data.term // search term
+                    };
+                },
+                processResults: function (response) {
+                    return {
+                        results:response
+                    };
+                },
+                cache: true
+			}
+		});
+	});
+});

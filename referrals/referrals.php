@@ -24,6 +24,11 @@
                     left:200px;
                 }
             }
+            .select2-container .select2-selection--single{
+                height:34px !important;
+                padding-bottom: 10px !important;
+            }
+
         </style>
     </head>
     <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed" >
@@ -70,21 +75,13 @@
                                     <form method="POST" id="referral_form">
                                         <div class="form-group">
                                             <label for="inputText">Jobs</label>
-                                            <select class="form-control job_id" name="job_id" required>
-                                                <option disabled selected>Select a Company</option>
-                                                <?php 
-                                                    $sql = "SELECT * FROM jobs WHERE status='Active'";
-                                                    $select = $conn->query($sql);
-                                                    while($row = $select->fetch_assoc()){    
-                                                        echo '<option value="'.$row['ref_no'].'">'.$row['company_name'].' - '.$row['job_description']."</option>";
-                                                    }
-                                                ?>
+                                            <select class="form-control job_id" id="job_id" data-placeholder="Enter a reference no." name="job_id" required>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="inputText">Applicants</label>
-                                            <select class="form-control app_id" name="app_id" required>
-                                                <option disabled selected>Select an Applicant</option>
+                                            <select class="form-control app_id" data-placeholder="Select an option" name="app_id" required>
+                                                <option disabled>Select an Applicant</option>
                                                 <?php 
                                                     $sql = "SELECT * FROM applicants WHERE NOT status='Hired'";
                                                     $select = $conn->query($sql);
