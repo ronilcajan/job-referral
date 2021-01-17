@@ -30,14 +30,13 @@ $(document).ready(function() {
             },
             buttons: {
                 cancel: true,
-                button: {
-                    text:'Confirm Password',
-                    closeModal: false,
-                } 
+                confirm: {
+                    text: "Confirm Password"
+                },
             },
         })
-        .then(name => {
-            if(name != null){
+        .then(value => {
+            if(value != null){
                 swal({
                     title: 'Change Password',
                     text: 'Confirm your password',
@@ -54,7 +53,7 @@ $(document).ready(function() {
                     },
                 })
                 .then( pass => {
-                    if(name == pass){
+                    if(value == pass){
                         $.ajax({
                             type: "POST",
                             url: "../model/change_password.php",
@@ -73,6 +72,7 @@ $(document).ready(function() {
                         })
                     }else{
                         toastr.error("Password did not match!");
+                        alert(value + pass)
                     }
 
                 });
