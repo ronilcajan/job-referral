@@ -14,7 +14,7 @@
 			$validation['jobs'] = $row; 
 		}
 		$validation['success'] = true;
-		$validation['message'] = 'Jobs found!';
+		$validation['message'] = 'A Job is found!';
 
 	}else{
 

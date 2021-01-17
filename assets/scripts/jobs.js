@@ -16,16 +16,15 @@ $(document).ready(function(){
 					orientation: 'landscape',
 					pageSize: 'a4',
 					exportOptions: {
-						columns: [ 0, 1, 2, 3,4, 5,6 ]
+						columns: [ 0,2,3,4,5,6]
 					},
 					customize : function(doc){ 
 						var rowCount = doc.content[1].table.body.length;
 						for (i = 1; i < rowCount; i++) {
 							doc.content[1].table.body[i][0].alignment = 'center';
-							doc.content[1].table.body[i][1].fontSize  = 0;
-							doc.content[1].table.body[i][3].alignment = 'center';
+							doc.content[1].table.body[i][2].alignment = 'center';
 						}
-						doc.content[1].table.widths = ['5%','12%','16%','5%','16%','16%','30%'];
+						doc.content[1].table.widths = ['5%','20%','5%','16%','16%','38%'];
 					},
 					
 					},

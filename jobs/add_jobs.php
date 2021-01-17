@@ -49,7 +49,7 @@
                             <form method="POST" id="job_form">
                             <?php if(isset($_GET['ref_no'])):?>
                             <div class="form-group">
-                                <label for="inputText">Referral No.</label>
+                                <label for="inputText">Reference No.</label>
                                 <div class="input-group col-sm-6">
                                     <input type="text" class="form-control rounded-1 ref_no" id="inputTextserial" placeholder="Enter job referral number" name="ref_no" value="<?php echo $_GET['ref_no'];?>" autofocus required>
                                     <span class="input-group-append">

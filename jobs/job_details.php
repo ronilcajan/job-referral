@@ -73,7 +73,7 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="inputText">Referral No.</label>
+                                        <label for="inputText">Reference No.</label>
                                         <p class="card-description"><?php echo empty($row['ref_no']) ? 'Nothing to show' : $row['ref_no']; ?></p>
                                     </div>
                                     <div class="form-group">
@@ -271,7 +271,7 @@
                                 <div class="card-body pl-5 pr-5" id="printable">
                                     <div class="w-100 text-center">
                                         <h3><?php echo empty($row['job_description']) ? 'Nothing to show' : $row['job_description']; ?></h3>
-                                        <h4 class=""><?php echo empty($row['ref_no']) ? 'Nothing to show' : 'Referral No.'.$row['ref_no']; ?></h4>
+                                        <h4 class=""><?php echo empty($row['ref_no']) ? 'Nothing to show' : 'Reference No.'.$row['ref_no']; ?></h4>
                                     </div>
                                     <?php if(!empty($row['count'])){?>
                                         <div class="form-group mt-5">
