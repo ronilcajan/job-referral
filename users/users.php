@@ -59,7 +59,7 @@
                                 </thead>
                                 <tbody>
                                 <?php 
-                                    $sql = "SELECT * FROM user";
+                                    $sql = "SELECT * FROM user WHERE user_type='Staff'";
                                     $select = $conn->query($sql);
                                     while($row = $select->fetch_assoc()){    
                                         echo '<tr><td class="userid">'.$row['id'].'</td>';

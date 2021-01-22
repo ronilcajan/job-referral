@@ -25,7 +25,7 @@
 
 		if(isset($_POST['create']) && in_array($_FILES['img']['type'], $supported_image)){
 
-			$query 		= "INSERT INTO user_profile (username,name,education,location,email,contact_no,notes,'profile_img') VALUES ('$username','$name','$education','$location','$email','$number','$notes', '$newimg')";
+			$query 		= "INSERT INTO user_profile (username,name,profile_img,education,location,email,contact_no,notes) VALUES ('$username','$name','$newimg','$education','$location','$email','$number','$notes')";
 			
 			$result 	= $conn->query($query);
 

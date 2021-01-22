@@ -9,24 +9,24 @@
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <?php if(!empty($im)):?>
-            <div class="image">
-                <img src="../uploads/avatar/<?php echo $im ?>" class="img-circle elevation-2" alt="User Image">
-            </div>
-            <div class="info">
-                <?php if(strpos($_SERVER['REQUEST_URI'],'users')>0):?>
-                    <a href="profile.php?username=<?php echo $_SESSION['username'];?>" class="d-block"><?php echo $n;?></a>
-                <?php else: ?>
-                    <a href="../users/profile.php?username=<?php echo $_SESSION['username'];?>" class="d-block"><?php echo $n;?></a> 
-                <?php endif ?>
-            </div>
+            <?php if(!empty($image)):?>
+                <div class="image">
+                    <img src="../uploads/avatar/<?php echo $image ?>" class="img-circle elevation-2" alt="User Image">
+                </div>
+                <div class="info">
+                    <?php if(strpos($_SERVER['REQUEST_URI'],'users')>0):?>
+                        <a href="profile.php?username=<?php echo $_SESSION['username'];?>" class="d-block"><?php echo ucwords($name); ?></a>
+                    <?php else: ?>
+                        <a href="../users/profile.php?username=<?php echo $_SESSION['username'];?>" class="d-block"><?php echo ucwords($name); ?></a> 
+                    <?php endif ?>
+                </div>
             <?php else: ?>
                 <div class="image">
-                <img src="../assets/images/avatars/avatar.png" class="img-circle elevation-2" alt="User Image">
-            </div>
-            <div class="info">
-                <a href="#" class="d-block"><?php echo $n;?></a>
-            </div>
+                    <img src="../assets/images/avatars/avatar.png" class="img-circle elevation-2" alt="User Image">
+                </div>
+                <div class="info">
+                    <a href="../users/profile.php?username=<?php echo $_SESSION['username'];?>" class="d-block"><?= empty($name) ? ucwords($_SESSION['username']) : ucwords($name);?></a>
+                </div>
             <?php endif?>
         </div>
 
